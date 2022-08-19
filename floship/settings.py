@@ -140,3 +140,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STORE_HOSTNAME = 'store'
 STORE_HOST = f'http://{STORE_HOSTNAME}:8000'
+HOSTNAME = os.getenv('HOSTNAME')

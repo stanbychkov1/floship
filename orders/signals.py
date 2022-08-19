@@ -11,7 +11,7 @@ from . import models, serializers
 
 
 def define_host(data):
-    if os.getenv('HOSTNAME') != settings.STORE_HOSTNAME:
+    if settings.HOSTNAME != settings.STORE_HOSTNAME:
         return settings.STORE_HOST
     return warehouses.WAREHOUSES_HOSTS[data.get('warehouse')]
 
