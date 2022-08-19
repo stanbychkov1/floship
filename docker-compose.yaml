@@ -1,0 +1,56 @@
+version: '3.3'
+
+services:
+
+  store:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - HOSTNAME=store
+    env_file:
+      - ./.env
+    ports:
+      - "8000:8000"
+
+
+  warehouse-1:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - HOSTNAME=warehouse-1
+    env_file:
+      - ./.env
+    ports:
+      - '8001:8000'
+
+  warehouse-2:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - HOSTNAME=warehouse-2
+    env_file:
+      - ./.env
+    ports:
+      - '8002:8000'
+
+  warehouse-3:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - HOSTNAME=warehouse-3
+    env_file:
+      - ./.env
+    ports:
+      - '8003:8000'
